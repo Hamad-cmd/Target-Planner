@@ -7,9 +7,20 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-st.set_page_config(page_title="Weekly Target Planner", layout="wide")
+st.set_page_config(
+    page_title="Weekly Target Planner", 
+    layout="wide",
+    page_icon="📦",
+    initial_sidebar_state="collapsed"
+)
 
-# --- Session State Initialization ---
+# Add welcome header
+st.markdown("""
+<div style='text-align: center; padding: 20px; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); border-radius: 10px; margin-bottom: 30px;'>
+    <h1 style='color: white; margin: 0;'>📦 Weekly Target Planner</h1>
+    <p style='color: white; margin: 10px 0 0 0; font-size: 18px;'>Smart Business Planning & Analytics Dashboard</p>
+</div>
+""", unsafe_allow_html=True)
 def initialize_session_state():
     """Initialize all session state variables with default values"""
     defaults = {
@@ -27,7 +38,7 @@ def initialize_session_state():
 
 initialize_session_state()
 
-st.title("📦 Weekly Target Planner")
+# --- Session State Initialization ---
 
 # --- TABS ---
 tab1, tab2, tab3 = st.tabs(["📁 Data Upload", "📊 Weekly Planner", "📈 Dashboard"])
